@@ -4,10 +4,11 @@ Changes audio speed of all .mp3 files in a given folder
 '''
 
 from pathlib import Path
-import argparse
 import os
+import sys
 from tqdm import tqdm
 from prints import info_msg
+from prints import error_msg
 
 
 COMMAND = 'ffmpeg -y -i "{}" -filter:a "atempo={}" -vn "{}" 2>NUL'
@@ -37,13 +38,11 @@ def speedup_mp3(required_speed, dir_to_edit):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='speed up MP3 files.')
-    parser.add_argument('-speed', type=float, help='the required speed for the files', default=1)
-    required_named = parser.add_argument_group('required named arguments')
-    required_named.add_argument('-dir', type=str, help='a directory to the mp3 files', required=True)
-    args = parser.parse_args()
-
-    required_speed = args.speed
-    dir_to_edit = args.dir
-
-    speedup_mp3(required_speed, dir_to_edit)
+    if len(sys.argv) == 3:
+        dir_to_edit = sys.argv[1]
+        required_speed = sys.argv[2]
+        speedup_mp3(required_speed, dir_to_edit)
+    else:
+        print(error_msg.format('Incorrect number of arguments!'))
+        filename = sys.argv[0].split('\\')[-1].split('/')[-1]
+        print(info_msg.format('Use: {} <folder> <speed>'.format(filename)))
