@@ -48,6 +48,7 @@ def get_links(url):
         return -1
 
     print(info_msg.format('Finished downloading {} URLs!'.format(len(podcasts_dict))))
+    return file_path
 
 
 if __name__ == '__main__':

@@ -79,8 +79,9 @@ def download_podcasts(file_path, new_dir):
         print(error_msg.format(e))
         return -1
 
-    print(info_msg.format('Finished downloading {} podcasts!'.format(len(indexes_to_remove))))
-    return 0
+    num_podcasts = len(indexes_to_remove)
+    print(info_msg.format('Finished downloading {} podcasts!'.format(num_podcasts)))
+    return num_podcasts
 
 
 if __name__ == '__main__':

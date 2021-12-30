@@ -1,3 +1,9 @@
+'''
+searchpodcast.py by Amitai Farber 12/2021
+Search on google for the requested podcast
+'''
+
+
 import googlesearch
 import feedparser
 from prints import error_msg
@@ -13,8 +19,9 @@ def search_podcast(podcast_name):
         feed = feedparser.parse(link)
         if not feed.entries == []:
             name = feed.feed.title
-            if name == podcast_name:
+            if name.lower() == podcast_name.lower():
                 return link
+    print(info_msg.format('Podcast name not found!'))
     return 0
 
 

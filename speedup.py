@@ -12,6 +12,7 @@ from prints import error_msg
 
 
 COMMAND = 'ffmpeg -y -i "{}" -filter:a "atempo={}" -vn "{}" 2>NUL'
+new_dir = None
 
 
 def speedup_mp3(required_speed, dir_to_edit):
@@ -35,6 +36,7 @@ def speedup_mp3(required_speed, dir_to_edit):
         os.system(COMMAND.format(filename, required_speed, new_file))
 
     print(info_msg.format('Speeduped {} files!'.format(len(mp3_files))))
+    return new_dir
 
 
 if __name__ == '__main__':
