@@ -1,13 +1,14 @@
 import argparse
 import sys
 
-from Utils.prints import error_msg
-from Utils.prints import info_msg
 from Downloader.searchpodcast import search_podcast
 from Downloader.getlinks import get_links
 from Downloader.getpodcasts import download_podcasts
 from Postprocessing.speedup import speedup_mp3
 from Postprocessing.fixtags import fix_tags
+from Utils.prints import error_msg
+from Utils.prints import info_msg
+import Utils.configuration
 
 new_dir = None
 

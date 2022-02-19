@@ -12,6 +12,7 @@ import json
 
 from Utils.prints import error_msg
 from Utils.prints import info_msg
+import Utils.configuration as conf
 
 
 def get_links(url):
@@ -22,15 +23,18 @@ def get_links(url):
 
     podcasts_name = podcasts_feed.feed.title
 
-    podcasts_urls = [entry['links'][0]['href'] for entry in podcasts_feed.entries]
-    podcasts_titles = [entry['title'] for entry in podcasts_feed.entries]
+    try:
+        podcasts_urls = [entry['links'][0]['href'] for entry in podcasts_feed.entries]
+        podcasts_titles = [entry['title'] for entry in podcasts_feed.entries]
+    except Exception as e:
+        print(error_msg.format('couldn\'t parse feed!'))
+        return -1
 
     podcasts_dict = {}
     for index, (title, url) in enumerate(zip(podcasts_titles, podcasts_urls)):
         podcasts_dict[index] = (title, url)
 
-    directory = pathlib.Path(__file__).parent.resolve().as_posix()
-    directory += '/links'
+    directory = conf.links_directory
     try:
         if not os.path.exists(directory):
             os.mkdir(directory)

@@ -15,7 +15,7 @@ from Utils.prints import error_msg
 from Utils.prints import info_msg
 
 
-allowed_chars = [' ', '-']
+allowed_chars = [' ', '-', ',', '\'']
 
 
 def download_podcasts(file_path, new_dir):
@@ -53,8 +53,6 @@ def download_podcasts(file_path, new_dir):
                 for char in title:
                     if char.isalpha() or char.isdigit() or char in allowed_chars:
                         podcast_filename += char
-                    else:
-                        podcast_filename += '_'
                 try:
                     podcast_file = open('{}\\{}.mp3'.format(new_dir, podcast_filename), 'wb')
                     podcast_file.write(podcast.content)
