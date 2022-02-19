@@ -8,8 +8,9 @@ import sys
 from pathlib import Path
 from tqdm import tqdm
 import mutagen.id3
-from prints import error_msg
-from prints import info_msg
+
+from Utils.prints import error_msg
+from Utils.prints import info_msg
 
 
 def fix_tags(dir_to_edit):

@@ -7,8 +7,9 @@ from pathlib import Path
 import os
 import sys
 from tqdm import tqdm
-from prints import info_msg
-from prints import error_msg
+
+from Utils.prints import error_msg
+from Utils.prints import info_msg
 
 
 COMMAND = 'ffmpeg -y -i "{}" -filter:a "atempo={}" -vn "{}" 2>NUL'

@@ -6,9 +6,10 @@ Search on google for the requested podcast
 
 import googlesearch
 import feedparser
-from prints import error_msg
-from prints import info_msg
 import sys
+
+from Utils.prints import error_msg
+from Utils.prints import info_msg
 
 
 def search_podcast(podcast_name):

@@ -10,8 +10,9 @@ import pathlib
 import requests
 import os
 from tqdm import tqdm
-from prints import error_msg
-from prints import info_msg
+
+from Utils.prints import error_msg
+from Utils.prints import info_msg
 
 
 allowed_chars = [' ', '-']

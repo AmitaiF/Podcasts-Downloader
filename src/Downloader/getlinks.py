@@ -9,8 +9,9 @@ import sys
 import os
 import pathlib
 import json
-from prints import error_msg
-from prints import info_msg
+
+from Utils.prints import error_msg
+from Utils.prints import info_msg
 
 
 def get_links(url):
