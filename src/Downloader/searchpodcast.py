@@ -24,13 +24,3 @@ def search_podcast(podcast_name):
                 return link
     print(info_msg.format('Podcast name not found!'))
     return 0
-
-
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print(error_msg.format('Incorrect number of arguments!'))
-        filename = sys.argv[0].split('\\')[-1].split('/')[-1]
-        print(info_msg.format('Use: {} <podcast name>'.format(filename)))
-    else:
-        name = sys.argv[1]
-        search_podcast(name)

@@ -50,13 +50,3 @@ def get_links(url):
 
     print(info_msg.format('Finished downloading {} URLs!'.format(len(podcasts_dict))))
     return file_path
-
-
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print(error_msg.format('Incorrect number of arguments!'))
-        filename = sys.argv[0].split('\\')[-1].split('/')[-1]
-        print(info_msg.format('Use: {} <feed url>'.format(filename)))
-    else:
-        url = sys.argv[1]
-        get_links(url)

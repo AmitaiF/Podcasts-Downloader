@@ -83,19 +83,3 @@ def download_podcasts(file_path, new_dir):
     num_podcasts = len(indexes_to_remove)
     print(info_msg.format('Finished downloading {} podcasts!'.format(num_podcasts)))
     return num_podcasts
-
-
-if __name__ == '__main__':
-    if len(sys.argv) == 3:
-        file_path = sys.argv[1]
-        new_dir = sys.argv[2]
-        download_podcasts(file_path, new_dir)
-    elif len(sys.argv) == 2:
-        file_path = sys.argv[1]
-        directory = pathlib.Path(__file__).parent.resolve().as_posix()
-        new_dir = directory + '/{}'.format(podcast_name)
-        download_podcasts(file_path, new_dir)
-    else:
-        print(error_msg.format('Incorrect number of arguments!'))
-        filename = sys.argv[0].split('\\')[-1].split('/')[-1]
-        print(info_msg.format('Use: {} <filename>.uf <target folder>'.format(filename)))

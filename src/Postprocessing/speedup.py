@@ -38,14 +38,3 @@ def speedup_mp3(required_speed, dir_to_edit):
 
     print(info_msg.format('Speeduped {} files!'.format(len(mp3_files))))
     return new_dir
-
-
-if __name__ == '__main__':
-    if len(sys.argv) == 3:
-        dir_to_edit = sys.argv[1]
-        required_speed = sys.argv[2]
-        speedup_mp3(required_speed, dir_to_edit)
-    else:
-        print(error_msg.format('Incorrect number of arguments!'))
-        filename = sys.argv[0].split('\\')[-1].split('/')[-1]
-        print(info_msg.format('Use: {} <folder> <speed>'.format(filename)))
