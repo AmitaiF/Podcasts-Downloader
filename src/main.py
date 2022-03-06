@@ -13,7 +13,7 @@ import Utils.configuration
 new_dir = None
 
 
-def main(podcast_name, directory, speed, fix_tags):
+def main(podcast_name, directory, speed, fix_the_tags):
     url = search_podcast(podcast_name)
     if url == 0:
         return -1
@@ -25,7 +25,7 @@ def main(podcast_name, directory, speed, fix_tags):
         return -1
     if speed != 1 and speed is not None:
         new_dir = speedup_mp3(speed, directory)
-    if fix_tags:
+    if fix_the_tags:
         fix_tags(directory)
         if new_dir is not None:
             fix_tags(new_dir)
@@ -53,6 +53,6 @@ if __name__ == '__main__':
     name = args.name
     directory = args.dir
     speed = args.speed
-    fix_tags = args.fix_tags
+    fix_the_tags = args.fix_tags
 
-    main(name, directory, speed, fix_tags)
+    main(name, directory, speed, fix_the_tags)
