@@ -15,7 +15,7 @@ from Utils.prints import info_msg
 import Utils.configuration as conf
 
 
-def get_links(url):
+def get_links(url, from_episode=None):
     podcasts_feed = feedparser.parse(url)
     if podcasts_feed.entries == []:
         print(error_msg.format('feed url is invalid!'))
@@ -32,7 +32,12 @@ def get_links(url):
 
     podcasts_dict = {}
     for index, (title, url) in enumerate(zip(podcasts_titles, podcasts_urls)):
+        if title == from_episode:
+            break
         podcasts_dict[index] = (title, url)
+
+    # reverse the dictionary, so the last episode will be last
+    podcasts_dict = dict(reversed(list(podcasts_dict.items())))
 
     directory = conf.links_directory
     try:
